@@ -1,0 +1,148 @@
+/* V3 responsive and contrast polish. The layout uses shared components and
+   intentional breakpoints rather than overlapping mobile/desktop overrides. */
+html { color-scheme: light; overflow-x: clip; }
+body { overflow-x: clip; }
+.top-nav { width: 100%; max-width: 1440px; min-width: 0; }
+.top-nav--interior { width: 100%; max-width: none; margin: 0; background: #213660; }
+.top-nav-actions { min-width: 0; }
+.wordmark, .top-nav-actions, .social-links { flex-shrink: 0; }
+.nav-link { display: inline-flex; align-items: center; min-height: 44px; }
+.social-icon, .theme-toggle { width: 44px; height: 44px; min-width: 44px; }
+.theme-toggle { display: inline-grid; place-items: center; border: 1px solid #ffffff50; border-radius: 14px; color: #fff; background: #ffffff16; transition: background .2s, transform .2s; }
+.theme-toggle:hover { background: #ffffff30; transform: translateY(-1px); }
+.form-card { isolation: isolate; }
+.form-card::before { z-index: 0; pointer-events: none; }
+.form-card > * { position: relative; z-index: 1; }
+.hero-grid > *, .footer-upper > *, .footer-right > *, .program-grid > *, .coaches-grid > * { min-width: 0; }
+.hero-copy h1, .academy-section h2, .interior-hero h1 { overflow-wrap: normal; text-wrap: balance; }
+.field-label input, .field-label select, .field-label textarea { font-size: 16px; }
+.field-label input, .field-label textarea { min-width: 0; }
+.choice-tile { overflow-wrap: anywhere; }
+.gallery-section { max-width: 1320px; }
+.footer-right { min-width: 0; }
+.footer-brand { flex-wrap: wrap; }
+
+/* One-column tablet layout starts before the hero copy and form collide. */
+@media (min-width: 821px) and (max-width: 1120px) {
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 740px; gap: 36px; padding-bottom: 55px; }
+  .hero-copy { padding-top: 10px; }
+  .hero-copy h1 { max-width: 700px; font-size: clamp(52px, 7vw, 74px); }
+  .chess-illustration, .hero-lower { display: none; }
+  .form-card { max-width: 740px; width: 100%; }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  .top-nav { padding-inline: 28px; }
+  .top-nav--interior { padding-inline: 28px; }
+  .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .program-card { min-height: 245px; }
+  .academy-section { margin-block: 72px; }
+}
+@media (min-width: 601px) and (max-width: 820px) {
+  .hero-grid { max-width: 740px; }
+  .photo-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .photo, .photo:nth-child(1), .photo:nth-child(2) { grid-column: span 1; height: 230px; }
+}
+@media (max-width: 600px) {
+  .top-nav { min-height: 72px; height: auto; padding: 12px 16px; gap: 8px; }
+  .top-nav--interior { padding-inline: 16px; }
+  .wordmark { flex-shrink: 1; min-width: 0; }
+  .wordmark-text { font-size: 10px; }
+  .nav-link, .nav-divider { display: inline-flex; }
+  .nav-divider { display: none; }
+  .nav-link { font-size: 10px; }
+  .top-nav-actions { gap: 6px; }
+  .social-links { gap: 5px; }
+  .social-icon, .theme-toggle { width: 34px; height: 36px; min-width: 34px; border-radius: 11px; }
+  .social-icon svg { width: 17px; height: 17px; }
+  .hero-grid { width: 100%; padding: 16px 16px 45px; }
+  .form-card { max-width: 100%; }
+  .form-heading p { font-size: 13px; }
+  .choice-tile { min-height: 60px; font-size: 11px; }
+  .pill-option { font-size: 12px; }
+  .program-grid, .coaches-grid { gap: 14px; }
+  .academy-section { margin-block: 56px; }
+  .academy-section h2 { font-size: clamp(33px, 9vw, 42px); }
+  .gallery-section { border-radius: 20px; }
+  .contact-strip { padding: 28px 22px !important; }
+  .footer-upper { gap: 20px; }
+  .footer-links { gap: 13px 18px; }
+}
+@media (max-width: 420px) {
+  .top-nav { display: grid; grid-template-columns: minmax(0,1fr); gap: 8px; padding-block: 12px 9px; }
+  .top-nav .wordmark { grid-row: 1; }
+  .top-nav-actions { grid-row: 2; justify-content: space-between; width: 100%; }
+  .top-nav-actions .nav-link { font-size: 12px; }
+  .top-nav-actions .social-links { margin-left: auto; }
+  .hero-grid { gap: 22px; }
+  .hero-copy h1 { font-size: clamp(36px, 10vw, 43px); }
+  .hero-tags { gap: 6px; }
+  .hero-tag { font-size: 10px; padding: 7px 9px; }
+  .choice-grid--experience { grid-template-columns: 1fr; }
+  .choice-grid--experience .choice-tile { min-height: 49px; font-size: 13px; }
+  .choice-grid--experience .tile-emoji { width: 30px; flex-basis: 30px; height: 30px; }
+  .form-actions { display: grid; grid-template-columns: 1fr; gap: 13px; }
+  .form-actions .main-button { width: 100%; }
+  .form-actions .privacy-note { max-width: none; font-size: 11px; }
+  .back-button { justify-self: start; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .bottom-note { flex-wrap: wrap; }
+}
+@media (max-width: 340px) {
+  .hero-grid { padding-inline: 12px; }
+  .form-card { padding-inline: 14px; }
+  .choice-grid--programs { grid-template-columns: 1fr; }
+  .choice-grid--programs .choice-tile { min-height: 48px; font-size: 12px; }
+}
+
+/* True native dark theme: maintain legibility across every page and form step.
+   Light and dark do not alter content, breakpoints or form logic. */
+html[data-theme='dark'] { color-scheme: dark; --ink: #eef4ff; --cream: #111b2d; --paper: #1c2a42; --muted: #bdcbe1; --line: #435571; }
+html[data-theme='dark'] body { background: #111b2d; color: #eef4ff; }
+html[data-theme='dark'] .interior { background: #111b2d; }
+html[data-theme='dark'] .top-nav--interior { background: #213660; }
+html[data-theme='dark'] .academy-section h2, html[data-theme='dark'] .legal h1 { color: #f1f5ff; }
+html[data-theme='dark'] .academy-section h2 em { color: #c7a7ff; }
+html[data-theme='dark'] .eyebrow--dark { color: #d4baff; }
+html[data-theme='dark'] .program-card { background: #312d50; color: #f1f5ff; }
+html[data-theme='dark'] .program-card--2 { background: #45341e; }
+html[data-theme='dark'] .program-card--3 { background: #1d3d35; }
+html[data-theme='dark'] .program-card--4 { background: #472c3b; }
+html[data-theme='dark'] .program-card h3, html[data-theme='dark'] .coach-card h3 { color: #f6f6ff; }
+html[data-theme='dark'] .program-card p, html[data-theme='dark'] .coach-card p { color: #d4deef; }
+html[data-theme='dark'] .gallery-section { background: #1e2941; }
+html[data-theme='dark'] .source-note { color: #c0cce1; }
+html[data-theme='dark'] .coach-card { background: #1b2942; border-color: #405474; }
+html[data-theme='dark'] .coach-card strong { color: #d2baff; }
+html[data-theme='dark'] .coach-icon { background: #3c345d; color: #dbc8ff; }
+html[data-theme='dark'] .contact-strip { background: #203e37; }
+html[data-theme='dark'] .contact-strip p, html[data-theme='dark'] .legal p { color: #d1dded; }
+html[data-theme='dark'] .legal a { color: #d4baff; }
+html[data-theme='dark'] .form-card { background: #1b2940; color: #f2f6ff; border-color: #455a79; box-shadow: 0 30px 75px #061023bf; }
+html[data-theme='dark'] .form-heading h2 { color: #f5f7ff; }
+html[data-theme='dark'] .form-heading h2 em { color: #cfafff; }
+html[data-theme='dark'] .form-heading p { color: #c7d3e7; }
+html[data-theme='dark'] .enroll-status { color: #bbf0d2; background: #183e37; border-color: #3c705f; }
+html[data-theme='dark'] .form-progress::before { background: #445773; }
+html[data-theme='dark'] .progress-step { color: #bdc9df; }
+html[data-theme='dark'] .progress-dot { background: #2b3b57; border-color: #61718c; color: #e4ebfb; }
+html[data-theme='dark'] .progress-step--active { color: #fff8de; }
+html[data-theme='dark'] .progress-step--active .progress-dot { background: #ffda7d; border-color: #f8cc6b; color: #213660; }
+html[data-theme='dark'] .progress-step--complete { color: #b4f0cc; }
+html[data-theme='dark'] .progress-step--complete .progress-dot { background: #a9e1bf; border-color: #72c695; color: #163d30; }
+html[data-theme='dark'] .step-intro h3, html[data-theme='dark'] .field-label, html[data-theme='dark'] .field-group legend { color: #f2f5ff; }
+html[data-theme='dark'] .optional, html[data-theme='dark'] .privacy-note { color: #b7c7dd; }
+html[data-theme='dark'] .field-label input, html[data-theme='dark'] .field-label select, html[data-theme='dark'] .field-label textarea { background-color: #111c2e; border-color: #5b6e8a; color: #f4f7ff; }
+html[data-theme='dark'] .field-label input::placeholder, html[data-theme='dark'] .field-label textarea::placeholder { color: #aabdd5; }
+html[data-theme='dark'] .field-label select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23d9e4f7' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
+html[data-theme='dark'] .field-label input:focus, html[data-theme='dark'] .field-label select:focus, html[data-theme='dark'] .field-label textarea:focus { border-color: #c4a5ff; box-shadow: 0 0 0 3px #8269cb66; }
+html[data-theme='dark'] .choice-tile, html[data-theme='dark'] .pill-option { background: #253653; border-color: #596b88; color: #f0f3ff; }
+html[data-theme='dark'] .choice-tile--selected, html[data-theme='dark'] .pill-option--selected { background: #433b72; color: #fff7fe; border-color: #d0adff; box-shadow: 0 0 0 1px #d0adff inset; }
+html[data-theme='dark'] .choice-tile:hover, html[data-theme='dark'] .pill-option:hover { border-color: #d0adff; }
+html[data-theme='dark'] .tile-check { background: #9a78e3; }
+html[data-theme='dark'] .consent { color: #d7e1f2; }
+html[data-theme='dark'] .consent a { color: #e1c2ff; }
+html[data-theme='dark'] .back-button { color: #e0e8fa; }
+html[data-theme='dark'] .back-button:hover { color: #ffe19b; }
+html[data-theme='dark'] .success p { color: #d1dcef; }
+html[data-theme='dark'] .success h2 { color: #f8f9ff; }
+html[data-theme='dark'] .form-error { color: #ffd0d9; background: #502638; border-color: #945269; }

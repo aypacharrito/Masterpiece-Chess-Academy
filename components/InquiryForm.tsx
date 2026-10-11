@@ -56,7 +56,7 @@ export default function InquiryForm() {
 
   const scrollToCard = () => {
     if (typeof window !== 'undefined' && window.matchMedia('(max-width: 820px)').matches) {
-      cardRef.current?.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+      cardRef.current?.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     }
   };
 

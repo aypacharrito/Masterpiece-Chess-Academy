@@ -1,15 +1,19 @@
-# Masterpiece Chess Academy — Playful Luxury Website (v2)
+# Masterpiece Chess Academy — Playful Luxury Website (v3)
 
 A mobile-first, modern chess academy website built with Next.js App Router, TypeScript, and a Resend-ready enrollment form. It replaces the storefront-style landing page with a welcoming, three-step inquiry experience.
 
-## What changed in v2
+## What changed in v3
 
-- **Recognizable Instagram and Facebook logos** in the **top-right navigation** and footer, with accessible names and links to the academy's existing accounts. No social icon packages or third-party icon CDNs required.
+- **Recognizable Instagram and Facebook logos** in the **top navigation only**, with accessible names and links to the academy's existing accounts. No social icon packages or third-party icon CDNs required.
 - **Playful premium identity:** rich midnight navy, buttery yellow, lavender, peach and mint, custom chessboard illustration, elevated cards, and Fraunces + DM Sans typography.
-- **Phone-first design:** the questionnaire follows a compact headline rather than a tall illustration, touch-friendly controls, two-column selection tiles, flexible typography and cards that fit narrow displays. At narrow phone widths, the two socials remain visible in the header; the Academy link remains available in the footer.
+- **Phone-first design:** the questionnaire follows a compact headline rather than a tall illustration, touch-friendly controls, two-column selection tiles, flexible typography and cards that fit narrow displays. At narrow widths the header reorganizes to keep the Academy link, social icons, and theme control reachable without horizontal overflow.
 - **Tap-to-select questionnaire:** illustrated experience, program and format choices, clear 3-step indicator and friendly completion screen.
 - `/academy` inherits the new design with program cards, photos, coaches, contact information and an enrollment call-to-action.
 - A matching chess favicon and consistent branded header on the Privacy and Terms pages.
+
+- **Accessible native dark mode** with a persistent header toggle, legible dark form fields and choices, and theme-aware Academy, legal and contact sections.
+- **Responsive layout polish** at 340, 420, 600, 820, 1024 and 1120px: tablet hero stacks before collision; phone header and CTAs use separate, purpose-built layouts.
+- **Footer decluttered:** social links appear only in the header.
 
 ## Folder map
 
@@ -64,3 +68,7 @@ Create a new GitHub repository, push this folder to your repository root, then i
 ## Validation in this workspace
 
 All `.ts` and `.tsx` source files were parsed for syntax errors using TypeScript (none found). A complete Next.js build and actual phone-browser interaction test were **not** possible in this environment because npm dependencies were unavailable from the registry. Run `npm install && npm run build` and test the UI locally before deployment.
+
+## V3 quality assurance
+
+Test both themes on phones, tablets and desktops, especially at 320px, 375px, 390px, 430px, 768px, 1024px and 1440px. Dark Reader/browser extensions may override native colors; turn off injected recoloring to verify the site's own dark theme. Form API still requires Resend environment variables before real email submission works.

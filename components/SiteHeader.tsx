@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SocialLinks from './SocialLinks';
+import ThemeToggle from './ThemeToggle';
 
 export default function SiteHeader({ interior = false }: { interior?: boolean }) {
   return (
@@ -14,6 +15,7 @@ export default function SiteHeader({ interior = false }: { interior?: boolean })
         </Link>
         <span className="nav-divider" aria-hidden="true" />
         <SocialLinks />
+        <ThemeToggle />
       </nav>
     </header>
   );

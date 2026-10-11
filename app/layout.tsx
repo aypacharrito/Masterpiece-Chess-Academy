@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './polish.css';
 import { academy } from '../lib/content';
-import SocialLinks from '../components/SocialLinks';
 
 export const metadata: Metadata = {
   title: 'Masterpiece Chess Academy | Big Thinkers Start Here',
@@ -16,7 +16,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{children: React.ReactNode}>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var saved=localStorage.getItem('masterpiece-theme');var dark=saved==='dark'||(!saved&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.theme=dark?'dark':'light';}catch(e){document.documentElement.dataset.theme='light';}})();` }} />
+      </head>
       <body>
         {children}
         <footer className="site-footer">
@@ -31,7 +34,6 @@ export default function RootLayout({ children }: Readonly<{children: React.React
                 <a href="/privacy">Privacy Policy</a>
                 <a href="/terms">Terms of Service</a>
               </div>
-              <SocialLinks placement="footer" />
             </div>
           </div>
           <div className="footer-bottom">
