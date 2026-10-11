@@ -1,38 +1,66 @@
-# Masterpiece Chess Academy — premium website rebuild
+# Masterpiece Chess Academy — Playful Luxury Website (v2)
 
-Next.js App Router + TypeScript landing page and Resend-ready enrollment inquiry form.
+A mobile-first, modern chess academy website built with Next.js App Router, TypeScript, and a Resend-ready enrollment form. It replaces the storefront-style landing page with a welcoming, three-step inquiry experience.
 
-## Pages
-- `/`: dedicated premium questionnaire / lead-capture page, with a minimal navigation and social/policy footer.
-- `/academy`: academy programs, coaches, five original gallery photo references, and contact details.
-- `/privacy` and `/terms`: clearly marked review-required draft legal copy.
+## What changed in v2
 
-## Local setup
+- **Recognizable Instagram and Facebook logos** in the **top-right navigation** and footer, with accessible names and links to the academy's existing accounts. No social icon packages or third-party icon CDNs required.
+- **Playful premium identity:** rich midnight navy, buttery yellow, lavender, peach and mint, custom chessboard illustration, elevated cards, and Fraunces + DM Sans typography.
+- **Phone-first design:** the questionnaire follows a compact headline rather than a tall illustration, touch-friendly controls, two-column selection tiles, flexible typography and cards that fit narrow displays. At narrow phone widths, the two socials remain visible in the header; the Academy link remains available in the footer.
+- **Tap-to-select questionnaire:** illustrated experience, program and format choices, clear 3-step indicator and friendly completion screen.
+- `/academy` inherits the new design with program cards, photos, coaches, contact information and an enrollment call-to-action.
+- A matching chess favicon and consistent branded header on the Privacy and Terms pages.
+
+## Folder map
+
+| Path | Purpose |
+| --- | --- |
+| `app/page.tsx` | Landing page: short intro + enrollment form |
+| `components/InquiryForm.tsx` | Three-step mobile-friendly interactive inquiry |
+| `components/SiteHeader.tsx` | Shared header and navigation |
+| `components/SocialLinks.tsx` | Linked inline SVG social logos |
+| `app/academy/page.tsx` | Programs, gallery and coach biographies |
+| `app/api/inquiry/route.ts` | Server-side Resend email delivery |
+| `app/globals.css` | Brand styles and responsive media queries |
+| `lib/content.ts` | Contact details, social URLs and original photo references |
+| `public/icon.svg` | App icon |
+| `docs/source-inventory.md` | Public site reference list and limitations |
+
+## Run locally
+
+Prerequisites: Node.js 20+ and npm. From the root of this folder:
+
 ```bash
 npm install
 cp .env.example .env.local
 npm run dev
 ```
-Visit `http://localhost:3000`.
 
-## Configure Resend (required to enable submissions)
-1. Verify a domain you control under Resend Domains and configure DNS records.
-2. Set `RESEND_API_KEY` and `RESEND_FROM` to a sender from that verified domain.
-3. Set `INQUIRY_TO` to the owner's confirmed recipient email. Default suggested recipient: `coachtda@yahoo.com` — verify before launch.
-4. Add same environment variables to Vercel, then redeploy. No keys go in client code.
-5. Test the full submission flow and verify inbox/spam delivery. Inquiries are not stored in a database.
+Open `http://localhost:3000`.
 
-## Important pre-launch checks
-- The welcome page appears to use a third-party embedded form; its precise questions were **not** accessible through public HTML indexing. The implemented questions are a thoughtfully designed proposed intake, **not claimed to be an exact transcription**. Compare with the original Google Form and update `components/InquiryForm.tsx` + `app/api/inquiry/route.ts` accordingly.
-- Five original photographs were located from public welcome-page image links. They're **remote CDN references**, not downloaded image assets; the original site may contain more images. Confirm ownership and migrate approved assets into `/public/images` before production. HEIC links may fail in browsers; convert approved originals to WebP/JPG.
-- Instagram and Facebook URLs have been identified from the old welcome page; test that they still work.
-- Privacy and Terms are placeholder drafts and require client/legal sign-off.
-- Confirm the academy's current physical address, programs, coaches, public contact email, and schedule.
-- For public launch, add real rate limiting / bot protection to the API route (the hidden honeypot alone isn't sufficient).
-- No Shopify checkout or payment processing is implemented; existing products/payments remain on the original site until intentionally migrated.
+## Enable inquiry emails with Resend
 
-## Origin / content inventory
-See `docs/source-inventory.md` for sourced pages, contacts, and images.
+1. Verify an email-sending domain in Resend and set its required DNS records.
+2. Create a Resend API key and set `RESEND_API_KEY` in `.env.local`.
+3. Set `RESEND_FROM` using your verified domain, e.g. `Masterpiece Chess Academy <enrollment@verified-domain.com>`.
+4. Set `INQUIRY_TO` to the confirmed academy recipient. The starter `.env.example` suggests `coachtda@yahoo.com`; **confirm with the owner**.
+5. Add those variables in Vercel, redeploy and submit a test inquiry. This prototype uses email delivery, not a database.
 
-## Deploy to Vercel
-Create an empty GitHub repository, push this directory to it, import the repo in Vercel, and set the three environment variables listed above. This project is not connected to the owner's GitHub or Resend accounts by default.
+The API validates inputs, escapes HTML in outgoing emails, checks for a honeypot field, and returns a clear message when Resend is unconfigured. **Rate limiting / bot detection** is still recommended before launching publicly.
+
+## Deploy
+
+Create a new GitHub repository, push this folder to your repository root, then import the repository into Vercel. Set Resend variables under the Vercel project settings and redeploy. No Shopify storefront or Google Form embed is used in the new landing page.
+
+## Owner approval / pre-launch checks
+
+- The original welcome page contains a third-party form, but its exact questions could not be extracted. These are **proposed, not verified identical** questions. Compare with the original Google Form, then adjust the front-end and `app/api/inquiry/route.ts` together.
+- The academy page currently references five discovered **remote Shopify CDN image URLs**; photos are *not* included as local image files. The existing site may have more. Get the owner's asset permission and move approved images into `/public` before production. HEIC image links can fail in some browsers.
+- Confirm the academy address, teachers, social URLs and public email in `lib/content.ts`.
+- Privacy Policy and Terms of Service are **drafts requiring owner/legal review** before going live, especially as inquiries involve minors.
+- Confirm enrollment language and whether a free trial is currently available.
+- Test on a real phone and check deliverability, keyboard behavior, form validation and links before going live.
+
+## Validation in this workspace
+
+All `.ts` and `.tsx` source files were parsed for syntax errors using TypeScript (none found). A complete Next.js build and actual phone-browser interaction test were **not** possible in this environment because npm dependencies were unavailable from the registry. Run `npm install && npm run build` and test the UI locally before deployment.
