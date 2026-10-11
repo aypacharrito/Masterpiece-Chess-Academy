@@ -1,0 +1,5 @@
+import type { Metadata } from 'next';
+import './globals.css';
+import { academy } from '../lib/content';
+export const metadata: Metadata = { title: 'Masterpiece Chess Academy | Begin Your Chess Journey', description: 'Personalized chess instruction, youth programs, and competitive training. Request a free trial class with Masterpiece Chess Academy.' };
+export default function RootLayout({ children }: Readonly<{children: React.ReactNode}>) { return <html lang="en"><body>{children}<footer className="site-footer"><div><a className="footer-brand" href="/">♔ MASTERPIECE <span>CHESS ACADEMY</span></a><p>{academy.motto}</p></div><div className="footer-links"><a href="/academy">Our Academy</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href={academy.instagram} target="_blank" rel="noreferrer">Instagram ↗</a><a href={academy.facebook} target="_blank" rel="noreferrer">Facebook ↗</a></div><div className="copyright">© {new Date().getFullYear()} Masterpiece Chess Academy</div></footer></body></html> }
