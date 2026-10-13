@@ -26,7 +26,6 @@ export default function RootLayout({ children }: Readonly<{children: React.React
           <div className="footer-upper">
             <div className="footer-brand-block">
               <a href="/" className="footer-brand"><span aria-hidden="true">♞</span> MASTERPIECE <small>CHESS ACADEMY</small></a>
-              <p>Learn chess. Build confidence. Find community.</p>
             </div>
             <div className="footer-right">
               <div className="footer-links" aria-label="Footer navigation">
@@ -38,7 +37,6 @@ export default function RootLayout({ children }: Readonly<{children: React.React
           </div>
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} {academy.name}</span>
-            <span>Helping young minds grow <span aria-hidden="true">✦</span></span>
           </div>
         </footer>
       </body>

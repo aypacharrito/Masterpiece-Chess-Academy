@@ -8,41 +8,28 @@
   width: min(100%, 1250px);
   grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
   gap: clamp(36px, 5vw, 90px);
-  padding-top: 40px;
+  padding-top: 54px;
   padding-bottom: 96px;
   align-items: start;
 }
 .landing--simple .hero-copy.hero-copy--simple {
-  padding-top: 77px;
-}
-.hero-eyebrow {
-  display: block;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .13em;
-  color: #d5e1f5;
+  padding-top: 84px;
 }
 .landing--simple .hero-copy--simple h1 {
   font-size: clamp(45px, 4.4vw, 70px);
   font-weight: 600;
   line-height: 1.16;
   max-width: 620px;
-  margin: 24px 0 23px;
+  margin: 0 0 28px;
   letter-spacing: -.045em;
   text-wrap: pretty;
 }
 .landing--simple .hero-copy--simple .hero-highlight { color: #ffdc91; }
-.landing--simple .hero-copy--simple .hero-description {
-  font-size: clamp(15px, 1.15vw, 17px);
-  line-height: 1.75;
-  max-width: 415px;
-  color: #edf1fc;
-}
 .hero-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 28px;
+  margin-top: 0;
   min-height: 44px;
   color: #ffe0a6;
   font-size: 14px;
@@ -59,12 +46,6 @@
   scroll-margin-top: 20px;
 }
 .form-card.form-card--simple::before { display: none; }
-.simple-form-eyebrow {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .11em;
-  color: #516e9b;
-}
 .simple-form-heading h2 {
   font-family: 'Fraunces', Georgia, serif;
   font-weight: 600;
@@ -72,38 +53,12 @@
   line-height: 1.18;
   letter-spacing: -.035em;
   color: #27395b;
-  margin: 10px 0 7px;
+  margin: 0 0 25px;
 }
-.simple-form-heading p {
-  margin: 0 0 26px;
-  color: #64718a;
-  font-size: 13px;
-  line-height: 1.6;
-}
-.simple-section-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: -.015em;
-  color: #31436a;
-  margin: 0 0 14px;
-}
-.simple-section-title span {
-  display: inline-grid;
-  place-items: center;
-  width: 27px;
-  height: 27px;
-  border-radius: 8px;
-  color: #5a46a0;
-  background: #eee9ff;
-  font-size: 10px;
-}
-.simple-section-title--contact {
-  border-top: 1px solid #e7e8ef;
-  padding-top: 22px;
-  margin-top: 23px;
+.simple-divider {
+  height: 1px;
+  margin: 24px 0 22px;
+  background: #e7e8ef;
 }
 .simple-fields {
   display: grid;
@@ -160,12 +115,8 @@ html[data-theme='dark'] .form-card.form-card--simple {
   color: #f2f6ff;
 }
 html[data-theme='dark'] .simple-form-heading h2,
-html[data-theme='dark'] .simple-section-title,
 html[data-theme='dark'] .simple-success .simple-success-message { color: #f6f8ff; }
-html[data-theme='dark'] .simple-form-heading p { color: #c7d3e7; }
-html[data-theme='dark'] .simple-form-eyebrow { color: #c8b6ff; }
-html[data-theme='dark'] .simple-section-title { border-color: #475977; }
-html[data-theme='dark'] .simple-section-title span { background: #40385f; color: #e0d0ff; }
+html[data-theme='dark'] .simple-divider { background: #475977; }
 html[data-theme='dark'] .form-card--simple .field-label input,
 html[data-theme='dark'] .form-card--simple .field-label select,
 html[data-theme='dark'] .form-card--simple .field-label textarea {
@@ -184,17 +135,13 @@ html[data-theme='dark'] .form-card--simple .field-label textarea {
   }
   .landing--simple .hero-copy.hero-copy--simple { padding-top: 0; }
   .landing--simple .hero-copy--simple h1 { max-width: 690px; font-size: clamp(42px, 6.2vw, 62px); }
-  .landing--simple .hero-copy--simple .hero-description { max-width: 590px; }
 }
 @media (max-width: 600px) {
-  .landing--simple .hero-grid.hero-grid--simple { padding: 20px 16px 50px; gap: 24px; }
-  .landing--simple .hero-copy--simple h1 { font-size: clamp(34px, 9vw, 46px); margin: 18px 0 13px; line-height: 1.14; }
-  .landing--simple .hero-copy--simple .hero-description { font-size: 14px; line-height: 1.55; }
-  .hero-eyebrow { font-size: 9px; }
+  .landing--simple .hero-grid.hero-grid--simple { padding: 26px 16px 50px; gap: 28px; }
+  .landing--simple .hero-copy--simple h1 { font-size: clamp(34px, 9vw, 46px); margin: 0 0 18px; line-height: 1.14; }
   .hero-cta { margin-top: 15px; }
   .form-card.form-card--simple { padding: 23px 17px; }
   .simple-fields { gap: 13px 10px; }
-  .simple-form-heading p { margin-bottom: 23px; }
   .form-card--simple .simple-submit { width: 100%; }
 }
 @media (max-width: 400px) {

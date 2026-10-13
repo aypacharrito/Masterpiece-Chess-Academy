@@ -66,7 +66,6 @@ export default function InquiryForm() {
         <div className="simple-success-icon"><Check size={30} aria-hidden="true" /></div>
         <h2>Thanks for reaching out!</h2>
         <p className="simple-success-message">Our team will reach out shortly.</p>
-        <p>We look forward to helping your child grow through chess.</p>
         <button className="main-button" type="button" onClick={() => { setForm(initial); setError(''); setDone(false); }}>
           Send another inquiry <ArrowRight size={17} aria-hidden="true" />
         </button>
@@ -77,12 +76,9 @@ export default function InquiryForm() {
   return (
     <section className="form-card form-card--simple" id="inquiry" aria-labelledby="inquiry-title" ref={cardRef}>
       <div className="simple-form-heading">
-        <span className="simple-form-eyebrow">CHESS PROGRAM INQUIRY</span>
         <h2 id="inquiry-title">Let&apos;s get started.</h2>
-        <p>Fill out this one form and our team will get in touch.</p>
       </div>
       <form className="simple-form" onSubmit={submit}>
-        <div className="simple-section-title"><span>01</span> About your child</div>
         <div className="simple-fields">
           <label className="field-label simple-span-full">Student&apos;s name <em>*</em>
             <input value={form.studentName} onChange={event => change('studentName', event.target.value)} maxLength={120} placeholder="Student's full name" autoComplete="off" required />
@@ -121,7 +117,7 @@ export default function InquiryForm() {
           </label>
         </div>
 
-        <div className="simple-section-title simple-section-title--contact"><span>02</span> Contact details</div>
+        <div className="simple-divider" role="separator" aria-label="Contact information" />
         <div className="simple-fields">
           <label className="field-label simple-span-full">Parent / guardian or contact name <em>*</em>
             <input value={form.guardianName} onChange={event => change('guardianName', event.target.value)} maxLength={120} autoComplete="name" placeholder="Your full name" required />
