@@ -1,38 +1,24 @@
 import InquiryForm from '../components/InquiryForm';
 import SiteHeader from '../components/SiteHeader';
+import './simple.css';
 
 export default function Home() {
   return (
-    <main className="landing">
-      <div className="landing-glow landing-glow--one" aria-hidden="true" />
-      <div className="landing-glow landing-glow--two" aria-hidden="true" />
+    <main className="landing landing--simple">
       <SiteHeader />
-      <div className="hero-grid">
-        <section className="hero-copy" aria-labelledby="hero-heading">
-          <div className="hero-kicker"><span className="kicker-star" aria-hidden="true">✦</span> A WORLD OF BIG THINKERS</div>
-          <h1 id="hero-heading">Little moves.<br/><span className="hero-highlight">Big possibilities<span className="hero-period">.</span></span></h1>
-          <p className="hero-description">Chess is more than a game. It&apos;s a superpower for curious minds, creative thinking, and growing confidence.</p>
-          <div className="hero-tags" aria-label="What students can learn">
-            <span className="hero-tag hero-tag--peach"><span aria-hidden="true">✹</span> Have fun</span>
-            <span className="hero-tag hero-tag--lavender"><span aria-hidden="true">♟</span> Think smart</span>
-            <span className="hero-tag hero-tag--mint"><span aria-hidden="true">★</span> Grow brave</span>
-          </div>
-          <div className="chess-illustration" aria-hidden="true">
-            <div className="art-spark art-spark--one">✳</div>
-            <div className="art-spark art-spark--two">✦</div>
-            <div className="art-caption art-caption--top">YOUR NEXT MOVE <span>↗</span></div>
-            <div className="art-board">
-              {Array.from({ length: 16 }).map((_, i) => <span key={i} className={(Math.floor(i / 4) + i % 4) % 2 === 0 ? 'board-square board-square--light' : 'board-square board-square--dark'} />)}
-              <div className="art-knight">♞</div>
-              <div className="art-star">✸</div>
-            </div>
-            <div className="art-caption art-caption--bottom">PLAY • LEARN • SHINE</div>
-          </div>
-          <div className="hero-lower">The best journeys start with a single move. <span aria-hidden="true">↗</span></div>
+      <div className="hero-grid hero-grid--simple">
+        <section className="hero-copy hero-copy--simple" aria-labelledby="hero-heading">
+          <span className="hero-eyebrow">MASTERPIECE CHESS ACADEMY</span>
+          <h1 id="hero-heading">
+            Find a <span className="hero-highlight">community</span> to help your child reach their <span className="hero-highlight">potential!</span>
+          </h1>
+          <p className="hero-description">
+            A welcoming place to learn chess, build confidence, and make friends.
+          </p>
+          <a className="hero-cta" href="#inquiry">Get started <span aria-hidden="true">↗</span></a>
         </section>
         <InquiryForm />
       </div>
-      <div className="bottom-note"><span>MASTERPIECE CHESS ACADEMY</span><span>SANTA CLARITA, CALIFORNIA <span aria-hidden="true">✦</span></span></div>
     </main>
   );
 }

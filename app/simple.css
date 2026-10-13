@@ -1,0 +1,205 @@
+/* The simpler one-page homepage requested by the academy owner.
+   Scoped selectors preserve the Academy, Privacy, and Terms page designs. */
+.landing.landing--simple {
+  min-height: 78vh;
+  background: linear-gradient(140deg, #1c3158 0%, #233e67 100%);
+}
+.landing--simple .hero-grid.hero-grid--simple {
+  width: min(100%, 1250px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  gap: clamp(36px, 5vw, 90px);
+  padding-top: 40px;
+  padding-bottom: 96px;
+  align-items: start;
+}
+.landing--simple .hero-copy.hero-copy--simple {
+  padding-top: 77px;
+}
+.hero-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  color: #d5e1f5;
+}
+.landing--simple .hero-copy--simple h1 {
+  font-size: clamp(45px, 4.4vw, 70px);
+  font-weight: 600;
+  line-height: 1.16;
+  max-width: 620px;
+  margin: 24px 0 23px;
+  letter-spacing: -.045em;
+  text-wrap: pretty;
+}
+.landing--simple .hero-copy--simple .hero-highlight { color: #ffdc91; }
+.landing--simple .hero-copy--simple .hero-description {
+  font-size: clamp(15px, 1.15vw, 17px);
+  line-height: 1.75;
+  max-width: 415px;
+  color: #edf1fc;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  min-height: 44px;
+  color: #ffe0a6;
+  font-size: 14px;
+  font-weight: 800;
+  border-bottom: 1px solid #ffe0a6;
+}
+.hero-cta:hover { color: #fff5de; border-color: #fff5de; }
+.form-card.form-card--simple {
+  background: #fffefc;
+  border: 1px solid #f0e8e0;
+  border-radius: 22px;
+  padding: clamp(24px, 3vw, 36px);
+  box-shadow: 0 16px 52px #0618324d;
+  scroll-margin-top: 20px;
+}
+.form-card.form-card--simple::before { display: none; }
+.simple-form-eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  color: #516e9b;
+}
+.simple-form-heading h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(29px, 3vw, 37px);
+  line-height: 1.18;
+  letter-spacing: -.035em;
+  color: #27395b;
+  margin: 10px 0 7px;
+}
+.simple-form-heading p {
+  margin: 0 0 26px;
+  color: #64718a;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.simple-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -.015em;
+  color: #31436a;
+  margin: 0 0 14px;
+}
+.simple-section-title span {
+  display: inline-grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
+  color: #5a46a0;
+  background: #eee9ff;
+  font-size: 10px;
+}
+.simple-section-title--contact {
+  border-top: 1px solid #e7e8ef;
+  padding-top: 22px;
+  margin-top: 23px;
+}
+.simple-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 12px;
+}
+.simple-span-full { grid-column: 1 / -1; }
+.form-card--simple .field-label { gap: 6px; font-size: 12px; line-height: 1.4; }
+.form-card--simple .field-label input,
+.form-card--simple .field-label select,
+.form-card--simple .field-label textarea {
+  min-height: 47px;
+  padding: 11px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.form-card--simple .field-label textarea { min-height: 75px; }
+.simple-consent { margin-top: 22px; }
+.form-card--simple .simple-submit {
+  margin-top: 19px;
+  min-width: 165px;
+  min-height: 50px;
+  font-size: 13px;
+}
+.form-card--simple .form-error a { text-decoration: underline; margin-left: 6px; }
+.form-card.form-card--simple.simple-success {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 13px;
+}
+.simple-success-icon {
+  display: grid;
+  place-items: center;
+  height: 62px;
+  width: 62px;
+  border-radius: 18px;
+  background: #e6f6ea;
+  color: #28764f;
+}
+.simple-success h2 { margin: 8px 0 0; font-size: clamp(28px, 3vw, 36px); }
+.simple-success .simple-success-message {
+  color: #25385c;
+  font-size: 17px;
+  font-weight: 800;
+  margin: 0;
+}
+.simple-success p { line-height: 1.6; margin: 0 0 8px; }
+html[data-theme='dark'] .form-card.form-card--simple {
+  background: #1b2940;
+  border-color: #455a79;
+  color: #f2f6ff;
+}
+html[data-theme='dark'] .simple-form-heading h2,
+html[data-theme='dark'] .simple-section-title,
+html[data-theme='dark'] .simple-success .simple-success-message { color: #f6f8ff; }
+html[data-theme='dark'] .simple-form-heading p { color: #c7d3e7; }
+html[data-theme='dark'] .simple-form-eyebrow { color: #c8b6ff; }
+html[data-theme='dark'] .simple-section-title { border-color: #475977; }
+html[data-theme='dark'] .simple-section-title span { background: #40385f; color: #e0d0ff; }
+html[data-theme='dark'] .form-card--simple .field-label input,
+html[data-theme='dark'] .form-card--simple .field-label select,
+html[data-theme='dark'] .form-card--simple .field-label textarea {
+  background-color: #111c2e;
+  color: #f4f7ff;
+  border-color: #5b6e8a;
+}
+@media (max-width: 1000px) {
+  .landing--simple .hero-grid.hero-grid--simple {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 720px);
+    gap: 35px;
+    padding-top: 22px;
+    padding-bottom: 64px;
+  }
+  .landing--simple .hero-copy.hero-copy--simple { padding-top: 0; }
+  .landing--simple .hero-copy--simple h1 { max-width: 690px; font-size: clamp(42px, 6.2vw, 62px); }
+  .landing--simple .hero-copy--simple .hero-description { max-width: 590px; }
+}
+@media (max-width: 600px) {
+  .landing--simple .hero-grid.hero-grid--simple { padding: 20px 16px 50px; gap: 24px; }
+  .landing--simple .hero-copy--simple h1 { font-size: clamp(34px, 9vw, 46px); margin: 18px 0 13px; line-height: 1.14; }
+  .landing--simple .hero-copy--simple .hero-description { font-size: 14px; line-height: 1.55; }
+  .hero-eyebrow { font-size: 9px; }
+  .hero-cta { margin-top: 15px; }
+  .form-card.form-card--simple { padding: 23px 17px; }
+  .simple-fields { gap: 13px 10px; }
+  .simple-form-heading p { margin-bottom: 23px; }
+  .form-card--simple .simple-submit { width: 100%; }
+}
+@media (max-width: 400px) {
+  .simple-fields { grid-template-columns: minmax(0, 1fr); }
+  .simple-span-full { grid-column: auto; }
+  .form-card.form-card--simple { padding-inline: 15px; }
+  .landing--simple .hero-copy--simple h1 { font-size: clamp(32px, 9vw, 37px); }
+}

@@ -4,12 +4,12 @@ import './polish.css';
 import { academy } from '../lib/content';
 
 export const metadata: Metadata = {
-  title: 'Masterpiece Chess Academy | Big Thinkers Start Here',
-  description: 'Fun, confidence-building chess lessons for kids and aspiring champions. Tell us about your student and explore Masterpiece Chess Academy.',
+  title: 'Masterpiece Chess Academy | A Community to Grow Through Chess',
+  description: 'Find a welcoming chess community to help your child learn, build confidence, and reach their potential.',
   icons: { icon: '/icon.svg' },
   openGraph: {
-    title: 'Masterpiece Chess Academy | Big Thinkers Start Here',
-    description: 'Little moves. Big possibilities. Explore chess lessons for curious young minds.',
+    title: 'Masterpiece Chess Academy | A Community to Grow Through Chess',
+    description: 'Find a community to help your child reach their potential!',
     type: 'website',
   },
 };
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
           <div className="footer-upper">
             <div className="footer-brand-block">
               <a href="/" className="footer-brand"><span aria-hidden="true">♞</span> MASTERPIECE <small>CHESS ACADEMY</small></a>
-              <p>Little moves. Big possibilities.</p>
+              <p>Learn chess. Build confidence. Find community.</p>
             </div>
             <div className="footer-right">
               <div className="footer-links" aria-label="Footer navigation">
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
           </div>
           <div className="footer-bottom">
             <span>© {new Date().getFullYear()} {academy.name}</span>
-            <span>Made for curious minds <span aria-hidden="true">✦</span></span>
+            <span>Helping young minds grow <span aria-hidden="true">✦</span></span>
           </div>
         </footer>
       </body>
