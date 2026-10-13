@@ -150,3 +150,46 @@ html[data-theme='dark'] .form-card--simple .field-label textarea {
   .form-card.form-card--simple { padding-inline: 15px; }
   .landing--simple .hero-copy--simple h1 { font-size: clamp(32px, 9vw, 37px); }
 }
+
+/* V5 ultra-simple revision: no homepage secondary navigation, progress, subtitle,
+   age/experience/goals prompts or decorative badges.  The Academy page is unchanged. */
+.landing--minimal .top-nav--minimal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  min-height: 92px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.landing--minimal .hero-grid.hero-grid--simple { align-items: center; }
+.landing--minimal .hero-copy.hero-copy--simple { padding-top: 0; }
+.landing--minimal .hero-copy--simple h1 { margin-bottom: 32px; }
+.landing--minimal .form-card.form-card--simple { padding-block: clamp(25px, 3vw, 38px); }
+.landing--minimal .form-card--simple .simple-form { margin: 0; }
+.landing--minimal .form-card--simple .simple-fields { row-gap: 18px; }
+.landing--minimal .form-card--simple .field-label { font-size: 13px; }
+.landing--minimal .form-card--simple .field-label input { min-height: 52px; }
+.landing--minimal .simple-consent { margin-top: 25px; }
+.landing--minimal .form-card--simple .simple-submit { width: 100%; }
+.landing--minimal .simple-success { min-height: 290px; }
+.landing--minimal .simple-success .main-button { margin-top: 10px; }
+@media (max-width: 1000px) {
+  .landing--minimal .hero-grid.hero-grid--simple { gap: 26px; }
+  .landing--minimal .hero-copy--simple h1 { margin-bottom: 12px; }
+}
+@media (max-width: 600px) {
+  .landing--minimal .top-nav--minimal { min-height: 76px; padding: 13px 18px; }
+  .landing--minimal .hero-grid.hero-grid--simple { padding-top: 15px; gap: 25px; }
+  .landing--minimal .hero-copy--simple h1 { margin-bottom: 10px; }
+  .landing--minimal .hero-cta { margin-top: 8px; }
+  .landing--minimal .form-card.form-card--simple { padding: 23px 19px; }
+  .landing--minimal .simple-fields { grid-template-columns: 1fr; }
+  .landing--minimal .simple-span-full { grid-column: auto; }
+}
+@media (max-width: 350px) {
+  .landing--minimal .form-card.form-card--simple { padding: 21px 15px; }
+}
+
+.landing--minimal .form-card--simple .simple-label-text { display: inline; }
+.landing--minimal .form-card--simple .simple-label-text .optional { margin-left: 5px; }

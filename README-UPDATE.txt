@@ -1,29 +1,35 @@
-MASTERPIECE CHESS ACADEMY — CLEAN, NO-SUBTITLES UPDATE
+MASTERPIECE CHESS ACADEMY -- ULTRA-SIMPLE HOMEPAGE UPDATE (OCT 12, 2026)
 Repository: https://github.com/aypacharrito/masterpiecechessacademy
 
-Changes requested in the owner's messages:
-1. Less clutter on the homepage (no upper eyebrow, paragraph subtitle, stacked badges, illustration or three-step progress bar).
-2. Headline: "Find a community to help your child reach their potential!"
-3. All inquiry questions on ONE scrolling form (not three pages/steps).
-4. After a successful API submission: "Our team will reach out shortly."
-5. Removed the extra form eyebrow, instruction subtitle, numbered section headings, and small footer taglines. Form labels remain for clarity.
-6. Mobile and desktop layout improvements, including dark-theme styles.
-7. Our Academy colors, content, and page design are not modified.
+Based on the red-X screenshots:
+- Homepage: remove small taglines, eyebrow badges, introductory copy, extra decorations, social icons, home-page theme switch, and the Our Academy link in the top header (Academy is still available through the footer).
+- Keep the main headline: "Find a community to help your child reach their potential!"
+- Remove the entire 3-step Student / Goals / Contact flow. ONE short scrolling form.
+- Remove student's age and chess experience.
+- Remove the whole Goals section (class type, program choices, learning format, goals and days/times).
+- Remove the optional "Any questions for us?" box.
+- Keep only: student name, parent/guardian/contact name, email, optional phone, and required contact consent.
+- Confirmation only after a successful server response: "Our team will reach out shortly."
+- Change the API validation to match the shorter form. No missing-field 400 errors for removed questions.
+- Keep the separate Our Academy page, its navigation, social links, color scheme, and design unchanged.
+- Keep responsive layout and native light/dark appearance.
 
-Files changed:
-- app/page.tsx
-- app/simple.css (new)
-- app/layout.tsx
-- components/InquiryForm.tsx
+FILES IN THIS PATCH (replacement files, not a full repository):
+  app/page.tsx
+  app/simple.css
+  app/layout.tsx
+  app/api/inquiry/route.ts
+  components/InquiryForm.tsx
 
-HOW TO APPLY USING GITHUB DESKTOP
-1. Extract this ZIP into a folder.
+TO APPLY (WINDOWS, GITHUB DESKTOP):
+1. Extract this ZIP so APPLY-UPDATE.cmd and the 'app' and 'components' folders are together.
 2. Double-click APPLY-UPDATE.cmd.
-3. Select the LOCAL repository folder for masterpiecechessacademy (the one you cloned in GitHub Desktop).
-4. The script copies only the four files above; it leaves other repo files untouched.
-5. Open GitHub Desktop, review the changed files and click "Commit to main" and "Push origin".
-6. Vercel should rebuild from the pushed main branch. Check its deployment status.
-7. After deployment, TEST form submission. The server requires RESEND_API_KEY, RESEND_FROM and INQUIRY_TO in Vercel, or submissions will show a contact error (no fake success message).
+3. Choose your existing local masterpiecechessacademy repository folder from GitHub Desktop.
+4. Open GitHub Desktop and review the changes.
+5. Commit to main and Push origin to trigger Vercel deployment.
+6. Test on mobile and desktop, including a real test inquiry after configuring email sending.
 
-IMPORTANT: We could read GitHub but were unable to push directly (GitHub API 403 Resource not accessible by integration). This package is a local update; it has not yet been deployed.
-This ZIP replaces the earlier One-Page-Fix ZIP; use only this newer package.
+EMAIL SUBMISSIONS: The server still needs RESEND_API_KEY, RESEND_FROM and INQUIRY_TO set in Vercel. Never put an API key in GitHub or this ZIP. Without these Vercel environment variables, an inquiry shows a useful error and NO fake success confirmation.
+
+This ZIP supersedes both previous update packages; do not apply the previous ZIPs after this one.
+The GitHub integration currently has read-only access (403 on attempt to update a file), so this ZIP needs to be applied locally and pushed manually using GitHub Desktop. No live deployment is claimed.
